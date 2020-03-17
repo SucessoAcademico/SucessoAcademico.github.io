@@ -106,22 +106,27 @@ function calculadora(){
 
   //calculando valor final
   valor = valor * paginas;
+  //Checa se o tipo é projeto se for o valor deve ser 350
+  if (tipo == 350){
+    valor = 350;
+  }
   valorMax = valor + valor * 0.25;
 
   //calculando valor final pra 10px
   valorMin10 = valorMax;
   valorMax10 = valorMax + valorMax * 0.25;
 
-  //Checa se o tipo é projeto se for o valor deve ser 350
-  if (tipo == 350){
-    valor = 350;
-  }
+
 
   //deixando os valores com duas casas decimais;
   valor = parseFloat(valor.toFixed(2));
+  valor  = valor.toLocaleString('pt-BR');
   valorMax = parseFloat(valorMax.toFixed(2));
+  valorMax = valorMax.toLocaleString('pt-BR');
   valorMin10 = parseFloat(valorMin10.toFixed(2));
+  valorMin10 = valorMin10.toLocaleString('pt-BR');
   valorMax10 = parseFloat(valorMax10.toFixed(2));
+  valorMax10 = valorMax10.toLocaleString('pt-BR');
 
   //mostrando valores dos resultados em tela
   btnResult = document.getElementById('resultMin');
