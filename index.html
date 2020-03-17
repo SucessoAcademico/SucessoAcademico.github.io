@@ -43,10 +43,10 @@
           <div class="form-group">
             <select id="tipo" class="custom-select mb-3">
               <option selected>Tipo</option>
-              <option id="revisao"value=0>Revisão</option>
-              <option id="especial" value=7>Especial</option>
-              <option id="projeto" value=350>Projeto</option>
-              <option id="tarefa" value=0>Tarefa</option>
+              <option id="revisao"value=0>Revisão (Bibliográfica, Literatura, Integrativa, TCC II)</option>
+              <option id="especial" value=7>Especial (Estudo de caso - Plano de negócios))</option>
+              <option id="projeto" value=350>Projeto (Pré-Projeto, Projeto de Pesquisa, TCC I)</option>
+              <option id="tarefa" value=0>Tarefa (PIM, PTG e afins)</option>
             </select>
           </div>
 
@@ -57,18 +57,18 @@
           </div>
           <div class="row">
             <div class="col-sm mt-1">
-              <button type="button" class="btn btn-success" id="resultMin">Min: 0R$</button>
+              <button type="button" class="btn btn-success" id="resultMin">Min: R$0</button>
             </div>
             <div class="col-sm mt-1">
-              <button type="button" class="btn btn-success" id="resultMax">Max: 0R$</button>
+              <button type="button" class="btn btn-success" id="resultMax">Max: R$0</button>
             </div>
           </div>
           <div class="row">
             <div class="col-sm mt-1">
-              <button type="button" class="btn btn-success" id="resultMin10">Min10x: 0R$</button>
+              <button type="button" class="btn btn-success" id="resultMin10">Min10x: R$0</button>
             </div>
             <div class="col-sm mt-1">
-              <button type="button" class="btn btn-success" id="resultMax10">Max10x: 0R$</button>
+              <button type="button" class="btn btn-success" id="resultMax10">Max10x: R$0</button>
             </div>
           </div>
         </form>
@@ -125,13 +125,13 @@ function calculadora(){
 
   //mostrando valores dos resultados em tela
   btnResult = document.getElementById('resultMin');
-  btnResult.textContent = 'Min: '+valor+'R$';
+  btnResult.textContent = 'Min: R$'+valor;
   btnResultMax = document.getElementById('resultMax');
-  btnResultMax.textContent = 'Max: '+valorMax+'R$'
+  btnResultMax.textContent = 'Max: R$'+valorMax
   btnResultMin10 = document.getElementById('resultMin10');
-  btnResultMin10.textContent = 'Min 10x: '+valorMin10+'R$';
+  btnResultMin10.textContent = 'Min 10x: R$'+valorMin10;
   btnResultMax10 = document.getElementById('resultMax10');
-  btnResultMax10.textContent = 'Max 10x: '+valorMax10+'R$';
+  btnResultMax10.textContent = 'Max 10x: R$'+valorMax10;
 }
 </script>
 
