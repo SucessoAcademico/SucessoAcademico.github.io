@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sucesso Acadêmico</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link href="https://css.gg/check.css" rel="stylesheet" />
+    <link href="https://css.gg/chevron-left-r.css" rel="stylesheet" />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body style="background-color: #f2f2f2">
+    <div class="container col-md-4">
+      <div class="shadow c-center">
+        <div class="row justify-content-center">
+          <img src="../../icons/acad.png" style="width: 150px; height: 150px" />
+        </div>
+        <hr />
+        <form action="">
+          <div class="form-group">
+            <input
+              class="form-control"
+              id="pag"
+              type="text"
+              placeholder="Número de páginas"
+              data-js="numeroPaginas"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              id="curso"
+              type="text"
+              placeholder="Curso"
+              data-js="curso"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              id="tema"
+              type="text"
+              placeholder="Tema"
+              data-js="tema"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              id="dataEntrega"
+              type="text"
+              placeholder="Data de entrega final"
+              maxlength="10"
+              data-js="data"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              id="valor"
+              type="text"
+              placeholder="Valor"
+              data-js="valor"
+            />
+          </div>
+
+          <div class="row">
+            <div class="col-sm">
+              <a href="../home/index.html" class="btn btn-outline-primary mt-1">
+                Voltar
+              </a>
+              <button
+                type="button"
+                onclick="handleValues()"
+                class="btn btn-outline-success mt-1"
+              >
+                Gerar Layout
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const masks = {
+        numeroPaginas(value) {
+          return value.replace(/\D/g, "");
+        },
+        curso(value) {
+          return value;
+        },
+        tema(value) {
+          return value;
+        },
+        data(value) {
+          return value
+            .replace(/\D/g, "")
+            .replace(/(\d{2})(\d)/, "$1/$2")
+            .replace(/(\d{2})(\d)/, "$1/$2");
+        },
+        valor(value) {
+          return value
+            .replace(/\D/g, "")
+            .replace(/(\d)(\d{2})$/, "$1,$2")
+            .replace(/(?=(\d{3})+(\D))\B/g, ".");
+        },
+      };
+      document.querySelectorAll("input").forEach((input) => {
+        const field = input.dataset.js;
+
+        input.addEventListener("input", (e) => {
+          e.target.value = masks[field](e.target.value);
+        });
+      });
+
+      // Captura os valores do input e renderiza o card
+      function handleValues() {
+        const data = new Date();
+        const dataGerada = new Intl.DateTimeFormat("pt-BR").format(data);
+
+        const paginas = parseInt(document.querySelector("#pag").value);
+        const curso = document.querySelector("#curso").value;
+        const tema = document.querySelector("#tema").value;
+        const dataEntrega = document.querySelector("#dataEntrega").value;
+        const valor = document.querySelector("#valor").value;
+        const condicional = paginas && curso && tema && dataEntrega && valor;
+
+        if (condicional) {
+          const inputValues = {
+            paginas,
+            curso,
+            tema,
+            dataEntrega,
+            valor,
+            dataGerada,
+          };
+
+          const container = document.querySelector("body");
+          container.innerHTML = `
+         <main class="center">
+          <section class="c-card">
+            <img
+              class="bandeira"
+              src="../../icons/bandeirinha.svg"
+              alt="Bandeira"
+            />
+            <img
+              class="logo"
+              src="../../icons/corpus-transparente.svg"
+              alt="Corpus Digital logo"
+            />
+            <img
+              class="estrelas"
+              src="../../icons/estrelas.svg"
+              alt="Estrelas"
+            />
+            <span class="title">Tipo de job</span>
+            <p class="valor"><span class="real">R$</span>${inputValues.valor}</p>
+
+            <ul class="menu-list">
+              <li class="item-list">
+                <i class="gg-check"></i>
+                N° de páginas: ${inputValues.paginas}
+              </li>
+              <li class="item-list">
+                <i class="gg-check"></i>Curso: ${inputValues.curso}
+              </li>
+              <li class="item-list"><i class="gg-check"></i>Tema: ${inputValues.tema}</li>
+              <li class="item-list">
+                <i class="gg-check"></i>Data de entrega final: ${inputValues.dataEntrega}
+              </li>
+            </ul>
+            <span class="validade">Gerado em 29/10/2021</span>
+          </section>
+        </main>
+          `;
+        }
+      }
+    </script>
+  </body>
+</html>
