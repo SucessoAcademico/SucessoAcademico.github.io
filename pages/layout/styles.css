@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+ul {
+  list-style: none;
+}
+
+.c-center {
+  margin-top: 50px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.center {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 330px;
+  height: 350px;
+  color: white;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    90deg,
+    #9b54fe 0,
+    #5872fe 50%,
+    #009afe 100%
+  );
+}
+
+.c-card .bandeira {
+  position: absolute;
+  max-width: 50px;
+  height: auto;
+  top: -2px;
+  left: 10%;
+}
+
+.c-card .logo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 130px;
+  height: auto;
+}
+
+.c-card .estrelas {
+  max-width: 100px;
+  height: auto;
+  margin-top: 80px;
+}
+
+.c-card .title {
+  font-size: 1.375rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.c-card .valor {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.c-card .valor .real {
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.c-card .validade {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 14px;
+}
+
+.c-card .menu-list .item-list {
+  display: flex;
+}
