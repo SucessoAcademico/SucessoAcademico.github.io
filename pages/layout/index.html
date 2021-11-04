@@ -33,6 +33,15 @@
           <div class="form-group">
             <input
               class="form-control"
+              id="job"
+              type="text"
+              placeholder="Tipo de job"
+              data-js="job"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
               id="pag"
               type="text"
               placeholder="Número de páginas"
@@ -132,6 +141,7 @@
         const data = new Date();
         const dataGerada = new Intl.DateTimeFormat("pt-BR").format(data);
 
+        const job = document.querySelector("#job").value;
         const paginas = parseInt(document.querySelector("#pag").value);
         const curso = document.querySelector("#curso").value;
         const tema = document.querySelector("#tema").value;
@@ -147,6 +157,7 @@
             dataEntrega,
             valor,
             dataGerada,
+            job,
           };
 
           const container = document.querySelector("body");
@@ -168,7 +179,7 @@
               src="../../icons/estrelas.svg"
               alt="Estrelas"
             />
-            <span class="title">Tipo de job</span>
+            <span class="title">${inputValues.job}</span>
             <p class="valor"><span class="real">R$</span>${inputValues.valor}</p>
 
             <ul class="menu-list">
@@ -184,7 +195,7 @@
                 <i class="gg-check"></i>Data de entrega final: ${inputValues.dataEntrega}
               </li>
             </ul>
-            <span class="validade">Gerado em 29/10/2021</span>
+            <span class="validade">Gerado em ${inputValues.dataGerada}</span>
           </section>
         </main>
           `;
