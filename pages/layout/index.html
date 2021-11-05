@@ -6,13 +6,13 @@
     <title>Sucesso Acadêmico</title>
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     />
-    <link href="https://css.gg/check.css" rel="stylesheet" />
-    <link href="https://css.gg/chevron-left-r.css" rel="stylesheet" />
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -26,7 +26,10 @@
     <div class="container col-md-4">
       <div class="shadow c-center">
         <div class="row justify-content-center">
-          <img src="../../icons/acad.png" style="width: 150px; height: 150px" />
+          <img
+            src="../../assets/icons/acad.png"
+            style="width: 150px; height: 150px"
+          />
         </div>
         <hr />
         <form action="">
@@ -166,17 +169,17 @@
           <section class="c-card">
             <img
               class="bandeira"
-              src="../../icons/bandeirinha.svg"
+              src="../../assets/icons/bandeirinha.svg"
               alt="Bandeira"
             />
             <img
               class="logo"
-              src="../../icons/corpus-transparente.svg"
+              src="../../assets/icons/corpus-transparente.svg"
               alt="Corpus Digital logo"
             />
             <img
               class="estrelas"
-              src="../../icons/estrelas.svg"
+              src="../../assets/icons/estrelas.svg"
               alt="Estrelas"
             />
             <span class="title">${inputValues.job}</span>
@@ -184,15 +187,18 @@
 
             <ul class="menu-list">
               <li class="item-list">
-                <i class="gg-check"></i>
+               <img src="../../assets/icons/check.svg" />
                 N° de páginas: ${inputValues.paginas}
               </li>
               <li class="item-list">
-                <i class="gg-check"></i>Curso: ${inputValues.curso}
+                <img src="../../assets/icons/check.svg" alt="Icone de check" />
+                Curso: ${inputValues.curso}
               </li>
-              <li class="item-list"><i class="gg-check"></i>Tema: ${inputValues.tema}</li>
+              <li class="item-list"><img src="../../assets/icons/check.svg" alt="Icone de check" />
+                Tema: ${inputValues.tema}</li>
               <li class="item-list">
-                <i class="gg-check"></i>Data de entrega final: ${inputValues.dataEntrega}
+                <img src="../../assets/icons/check.svg" alt="Icone de check" />
+                Data de entrega final: ${inputValues.dataEntrega}
               </li>
             </ul>
             <span class="validade">Gerado em ${inputValues.dataGerada}</span>
