@@ -6,13 +6,13 @@
     <title>Sucesso Acadêmico</title>
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     />
-    <link href="https://css.gg/check.css" rel="stylesheet" />
-    <link href="https://css.gg/chevron-left-r.css" rel="stylesheet" />
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -26,10 +26,22 @@
     <div class="container col-md-4">
       <div class="shadow c-center">
         <div class="row justify-content-center">
-          <img src="../../icons/acad.png" style="width: 150px; height: 150px" />
+          <img
+            src="../../assets/icons/acad.png"
+            style="width: 150px; height: 150px"
+          />
         </div>
         <hr />
         <form action="">
+          <div class="form-group">
+            <input
+              class="form-control"
+              id="job"
+              type="text"
+              placeholder="Tipo de job"
+              data-js="job"
+            />
+          </div>
           <div class="form-group">
             <input
               class="form-control"
@@ -79,7 +91,7 @@
 
           <div class="row">
             <div class="col-sm">
-              <a href="../home/index.html" class="btn btn-outline-primary mt-1">
+              <a href="../../index.html" class="btn btn-outline-primary mt-1">
                 Voltar
               </a>
               <button
@@ -132,6 +144,7 @@
         const data = new Date();
         const dataGerada = new Intl.DateTimeFormat("pt-BR").format(data);
 
+        const job = document.querySelector("#job").value;
         const paginas = parseInt(document.querySelector("#pag").value);
         const curso = document.querySelector("#curso").value;
         const tema = document.querySelector("#tema").value;
@@ -147,6 +160,7 @@
             dataEntrega,
             valor,
             dataGerada,
+            job,
           };
 
           const container = document.querySelector("body");
@@ -155,36 +169,39 @@
           <section class="c-card">
             <img
               class="bandeira"
-              src="../../icons/bandeirinha.svg"
+              src="../../assets/icons/bandeirinha.svg"
               alt="Bandeira"
             />
             <img
               class="logo"
-              src="../../icons/corpus-transparente.svg"
+              src="../../assets/icons/corpus-transparente.svg"
               alt="Corpus Digital logo"
             />
             <img
               class="estrelas"
-              src="../../icons/estrelas.svg"
+              src="../../assets/icons/estrelas.svg"
               alt="Estrelas"
             />
-            <span class="title">Tipo de job</span>
+            <span class="title">${inputValues.job}</span>
             <p class="valor"><span class="real">R$</span>${inputValues.valor}</p>
 
             <ul class="menu-list">
               <li class="item-list">
-                <i class="gg-check"></i>
-                N° de páginas: ${inputValues.paginas}
+               <img src="../../assets/icons/check.svg" />
+                N° de páginas: <span>${inputValues.paginas}</span>
               </li>
               <li class="item-list">
-                <i class="gg-check"></i>Curso: ${inputValues.curso}
+                <img src="../../assets/icons/check.svg" alt="Icone de check" />
+                Curso: <span>${inputValues.curso}</span>
               </li>
-              <li class="item-list"><i class="gg-check"></i>Tema: ${inputValues.tema}</li>
               <li class="item-list">
-                <i class="gg-check"></i>Data de entrega final: ${inputValues.dataEntrega}
+                <img src="../../assets/icons/check.svg" alt="Icone de check" />
+                Data de entrega final: <span>${inputValues.dataEntrega}</span>
               </li>
+              <li class="item-list"><img src="../../assets/icons/check.svg" alt="Icone de check" />
+               <span>Tema: ${inputValues.tema}</span></li>
             </ul>
-            <span class="validade">Gerado em 29/10/2021</span>
+            <span class="validade">Gerado em ${inputValues.dataGerada}</span>
           </section>
         </main>
           `;
