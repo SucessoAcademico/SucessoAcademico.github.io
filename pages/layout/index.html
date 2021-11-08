@@ -110,7 +110,7 @@
     <script type="text/javascript">
       const masks = {
         numeroPaginas(value) {
-          return value.replace(/\D/g, "");
+          return value;
         },
         curso(value) {
           return value;
@@ -145,7 +145,7 @@
         const dataGerada = new Intl.DateTimeFormat("pt-BR").format(data);
 
         const job = document.querySelector("#job").value;
-        const paginas = parseInt(document.querySelector("#pag").value);
+        const paginas = document.querySelector("#pag").value;
         const curso = document.querySelector("#curso").value;
         const tema = document.querySelector("#tema").value;
         const dataEntrega = document.querySelector("#dataEntrega").value;
