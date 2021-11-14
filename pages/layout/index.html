@@ -183,7 +183,9 @@
               alt="Estrelas"
             />
             <span class="title">${inputValues.job}</span>
-            <p class="valor"><span class="real">R$</span>${inputValues.valor}</p>
+            <p class="valor"><span class="real">R$</span>${
+              inputValues.valor
+            }</p>
 
             <ul class="menu-list">
               <li class="item-list">
@@ -199,7 +201,7 @@
                 Data de entrega final: <span>${inputValues.dataEntrega}</span>
               </li>
               <li class="item-list"><img src="../../assets/icons/check.svg" alt="Icone de check" />
-               <span>Tema: ${inputValues.tema}</span></li>
+               <span>Tema: ${inputValues.tema.toUpperCase()}</span></li>
             </ul>
             <span class="validade">Gerado em ${inputValues.dataGerada}</span>
           </section>
