@@ -112,9 +112,14 @@ ul {
 
 .c-card .menu-list .item-list {
   display: flex;
+  align-items: flex-start;
   gap: 5px;
   max-width: 280px;
+}
 
+.c-card .menu-list .item-list img {
+  margin-top: 5px;
+}
 
 .c-card .menu-list .item-list span {
   text-decoration: underline;
